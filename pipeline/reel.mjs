@@ -4,9 +4,8 @@ import { resolve } from 'node:path'
 import { PNG } from 'pngjs'
 import HME from 'h264-mp4-encoder'
 
-const W = 720, H = 1280, FPS = 24, DUR = 6.4
-const N = Math.round(FPS * DUR)
-const OUT_NAME = 'active-not-biddable-reel.mp4'
+const W = 720, H = 1280, FPS = 24
+const OUT_NAME = 'reel.mp4'
 const FONT_DIR = new URL('./fonts', import.meta.url).pathname
 const b64 = (f) => readFileSync(`${FONT_DIR}/${f}`).toString('base64')
 const FB = b64('InterTight-Bold.woff'), FM = b64('InterTight-Medium.woff'), FJ = b64('JetBrainsMono-SemiBold.woff')
@@ -19,14 +18,22 @@ const MARK = `<svg viewBox="0 0 100 100" width="52" height="52" xmlns="http://ww
 <circle cx="50" cy="50" r="42" fill="none" stroke="#43b06b" stroke-width="2" opacity="0.32"/><circle cx="50" cy="50" r="30" fill="none" stroke="#43b06b" stroke-width="2" opacity="0.5"/><circle cx="50" cy="50" r="18" fill="none" stroke="#43b06b" stroke-width="2" opacity="0.7"/>
 <line x1="50" y1="50" x2="84.64" y2="30" stroke="url(#arm)" stroke-width="3.6" stroke-linecap="round"/><circle cx="72.5" cy="37" r="5" fill="#5bf08a"/><circle cx="50" cy="50" r="4.6" fill="#f8fafc"/></svg>`
 
-const scenes = [
-  { s: 0.0, e: 1.1, html: `<div class="big">You filtered SAM.gov to <span class="g">"Active"</span> and drowned in dead ends.</div>` },
-  { s: 1.1, e: 2.2, html: `<div class="big">"Active" also returns Award Notices, Special Notices, and Sources Sought.</div>` },
-  { s: 2.2, e: 3.1, html: `<div class="huge g">Only 3 types</div><div class="mono">are truly biddable</div>` },
-  { s: 3.1, e: 4.5, html: `<div class="list"><div>Solicitation</div><div>Combined Synopsis/Solicitation</div><div>Presolicitation</div></div>` },
-  { s: 4.5, e: 5.4, html: `<div class="big">Filter to those three. Your feed becomes real work.</div>` },
-  { s: 5.4, e: 6.4, html: `<div class="big">Bonus: Award Notices are free intel.</div><div class="chip">Free at samgov-hunter.com</div>` },
+// PACING RULE: each scene stays on screen for `t` seconds. MIN_SCENE clamps it so a
+// reader always has time. Keep each scene to ONE short idea (about 8 words max) and let
+// the total run 16-24s. Do NOT drop below MIN_SCENE, that is what made reels feel rushed.
+const MIN_SCENE = 2.8
+const RAW = [
+  { t: 3.1, html: `<div class="big">You filtered SAM.gov to <span class="g">"Active"</span> and drowned in dead ends.</div>` },
+  { t: 3.0, html: `<div class="big">Most of those you <span class="g">cannot bid on</span>.</div>` },
+  { t: 2.9, html: `<div class="huge g">Only 3 types</div><div class="mono">are truly biddable</div>` },
+  { t: 4.0, html: `<div class="list"><div>Solicitation</div><div>Combined Synopsis / Solicitation</div><div>Presolicitation</div></div>` },
+  { t: 3.3, html: `<div class="big">Filter to those three. Your feed becomes <span class="g">real work</span>.</div>` },
+  { t: 3.6, html: `<div class="big">Award Notices are free intel. Use them.</div><div class="chip">Free at samgov-hunter.com</div>` },
 ]
+let acc = 0
+const scenes = RAW.map((r) => { const d = Math.max(MIN_SCENE, r.t); const o = { s: acc, e: acc + d, html: r.html }; acc += d; return o })
+const DUR = acc
+const N = Math.round(FPS * DUR)
 const sceneDivs = scenes.map((sc, i) => `<div class="scene" id="s${i}">${sc.html}</div>`).join('')
 
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>
@@ -46,19 +53,19 @@ html,body{width:${W}px;height:${H}px;overflow:hidden}
 .brand{position:absolute;top:64px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:14px}
 .word{font-family:'IT';font-weight:700;font-size:26px;letter-spacing:.14em}
 .word b{color:#34e27a}
-.scene{position:absolute;left:64px;right:64px;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:22px;opacity:0;will-change:opacity,transform}
-.big{font-family:'IT';font-weight:700;font-size:52px;line-height:1.15;letter-spacing:-.02em}
-.huge{font-family:'IT';font-weight:700;font-size:82px;line-height:1.02;letter-spacing:-.03em;text-shadow:0 0 40px rgba(52,226,122,.4)}
-.mono{font-family:'JB';font-weight:600;font-size:30px;letter-spacing:.1em;color:#a7bdb4}
+.scene{position:absolute;left:60px;right:60px;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:26px;opacity:0;will-change:opacity,transform}
+.big{font-family:'IT';font-weight:700;font-size:58px;line-height:1.16;letter-spacing:-.02em}
+.huge{font-family:'IT';font-weight:700;font-size:86px;line-height:1.02;letter-spacing:-.03em;text-shadow:0 0 40px rgba(52,226,122,.4)}
+.mono{font-family:'JB';font-weight:600;font-size:32px;letter-spacing:.08em;color:#a7bdb4}
 .g{color:#34e27a}
-.chip{font-family:'IT';font-weight:700;font-size:34px;color:#06110d;background:#34e27a;padding:18px 30px;border-radius:18px;box-shadow:0 12px 40px rgba(52,226,122,.35)}
+.chip{font-family:'IT';font-weight:700;font-size:36px;color:#06110d;background:#34e27a;padding:20px 32px;border-radius:18px;box-shadow:0 12px 40px rgba(52,226,122,.35)}
 .handle{position:absolute;bottom:70px;left:0;right:0;text-align:center;font-family:'JB';font-weight:600;font-size:24px;color:#9fb6ad;letter-spacing:.03em}
 .gtag{position:absolute;bottom:108px;left:0;right:0;text-align:center;font-family:'ITM';font-weight:500;font-size:23px;color:#9fb6ad}
 .gtag b{font-family:'IT';font-weight:700;color:#34e27a}
 .barwrap{position:absolute;bottom:44px;left:64px;right:64px;height:5px;border-radius:3px;background:rgba(120,200,150,.16)}
 .bar{height:100%;border-radius:3px;background:#34e27a;width:0%;box-shadow:0 0 14px rgba(52,226,122,.6)}
-.list{display:flex;flex-direction:column;gap:20px;align-items:center}
-.list div{font-family:'IT';font-weight:700;font-size:42px;line-height:1.2;color:#f4f8f6;background:rgba(52,226,122,.10);border:1px solid rgba(52,226,122,.4);border-radius:16px;padding:16px 26px}
+.list{display:flex;flex-direction:column;gap:20px;align-items:stretch;width:100%}
+.list div{font-family:'IT';font-weight:700;font-size:38px;line-height:1.15;color:#f4f8f6;background:rgba(52,226,122,.10);border:1px solid rgba(52,226,122,.4);border-radius:16px;padding:20px 24px;text-align:center}
 </style></head><body>
 <div class="stage">
  <div class="rings"></div>
@@ -72,17 +79,18 @@ html,body{width:${W}px;height:${H}px;overflow:hidden}
 </div>
 <script>
 const SC = ${JSON.stringify(scenes.map(s => ({ s: s.s, e: s.e })))};
+// Gentle fade: 0.5s in, hold, 0.4s out. Slow enough to read.
 window.setFrame = (i, N, D) => {
   const t = (i/(N-1))*D;
-  document.getElementById('sweep').style.transform = 'rotate(' + (t*55) + 'deg)';
+  document.getElementById('sweep').style.transform = 'rotate(' + (t*40) + 'deg)';
   document.getElementById('bar').style.width = Math.min(100, (t/D)*100) + '%';
   for (let k=0;k<SC.length;k++){
     const sc = SC[k], el = document.getElementById('s'+k);
-    let op = 0, ty = 26;
+    let op = 0, ty = 22;
     if (t >= sc.s && t <= sc.e){
-      const inp = Math.min(1, (t - sc.s)/0.35);
-      const outp = Math.min(1, (sc.e - t)/0.25);
-      op = inp * outp; ty = (1-inp)*26;
+      const inp = Math.min(1, (t - sc.s)/0.5);
+      const outp = Math.min(1, (sc.e - t)/0.4);
+      op = Math.min(inp, outp); ty = (1-inp)*22;
     }
     el.style.opacity = op; el.style.transform = 'translateY(' + ty + 'px)';
   }
@@ -102,14 +110,13 @@ await page.evaluate(() => document.fonts.ready)
 await page.waitForTimeout(150)
 
 if (process.argv[2] === 'preview') {
-  const times = [0.5, 1.6, 2.6, 3.8, 4.9, 5.9]
+  const times = scenes.map((s) => (s.s + s.e) / 2)
   for (let idx = 0; idx < times.length; idx++) {
-    const t = times[idx]
-    const i = Math.round((t / DUR) * (N - 1))
+    const i = Math.round((times[idx] / DUR) * (N - 1))
     await page.evaluate(([i, N, D]) => window.setFrame(i, N, D), [i, N, DUR])
     await page.screenshot({ path: SCRATCH + `preview_${idx}.png`, clip: { x: 0, y: 0, width: W, height: H } })
   }
-  console.log('PREVIEW DONE')
+  console.log('PREVIEW DONE', DUR.toFixed(1) + 's', N + ' frames')
   await browser.close()
   process.exit(0)
 }
@@ -129,4 +136,4 @@ const out = enc.FS.readFile(enc.outputFilename)
 writeFileSync(SCRATCH + OUT_NAME, Buffer.from(out))
 enc.delete()
 await browser.close()
-console.log('REEL DONE', W + 'x' + H, N + ' frames', (out.length/1024).toFixed(0) + 'KB')
+console.log('REEL DONE', W + 'x' + H, DUR.toFixed(1) + 's', N + ' frames', (out.length/1024).toFixed(0) + 'KB')
