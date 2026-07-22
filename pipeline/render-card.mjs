@@ -59,7 +59,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
  background:radial-gradient(1100px 700px at 80% -8%, rgba(34,197,94,.16), transparent 60%),radial-gradient(900px 900px at -12% 108%, rgba(34,197,94,.10), transparent 55%),linear-gradient(160deg,#07130f 0%,#0a1a16 55%,#081512 100%)}
 .canvas::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(120,200,150,.08) 1.2px,transparent 1.2px);background-size:34px 34px;opacity:.55;mask-image:linear-gradient(180deg,#000,transparent 70%)}
 .deco{position:absolute;right:-150px;top:-150px;width:640px;height:640px}
-.pad{position:absolute;inset:0;padding:74px 74px 62px;display:flex;flex-direction:column}
+.pad{position:absolute;inset:0;padding:70px 74px 54px;display:flex;flex-direction:column}
 .head{display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:18px}
 .mark{width:66px;height:66px;filter:drop-shadow(0 6px 18px rgba(34,197,94,.28))}
@@ -95,7 +95,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 <div class="title">${post.title}</div>
 <div class="sub">${post.subtitle}</div>
 ${body(post)}
-<div class="foot"><div class="handle">@sam.govhunter</div><div class="cta">${post.cta || 'Free at samgov-hunter.com'}</div></div>
+<div class="foot"><div class="handle">@sam.govhunter</div><div class="cta">${post.cta || 'Start free at samgov-hunter.com'}</div></div>
 </div></div></body></html>`
 
 const htmlPath = `${outBase}.html`
