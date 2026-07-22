@@ -124,10 +124,12 @@ reel, and carousel must mention it. It is now guaranteed structurally, not left 
   Entity Administrator letter." GSA dropped that requirement around April 2022 (UEI transition), so
   the claim was removed and the shaky 6th "Notary" row was deleted — the card is now 5 rows, which
   also matches its "5 things" headline. Replaced with an accurate entity-validation note.
-- **⚠️ LIVE-POST CAVEAT:** posts 1-6 (§1) were rendered/published BEFORE this cleanup, so some of
-  those live images carry em dashes in their on-image text and none carry the on-image GUIDE line,
-  and the live `sam-registration-checklist` post still shows the outdated "Notary / notarized Entity
-  Admin letter" row. They are not auto-fixable via the API (no caption/image edit after publish).
+- **⚠️ LIVE-POST CAVEAT:** every post published BEFORE this 2026-07-22 cleanup (the ones in §1,
+  plus any the Routine keeps posting until the operator swaps in the hardened prompt) predates the
+  clean content, so some of those live images carry em dashes in their on-image text and none carry
+  the on-image GUIDE line, and the live `sam-registration-checklist` post still shows the outdated
+  "Notary / notarized Entity Admin letter" row. They are not auto-fixable via the API (no caption or
+  image edit after publish). `posted.json` is the live list of what has gone out.
   If the operator cares, the fix is to delete + repost those specific ones from the now-clean plan;
   otherwise they age out of the grid naturally. All NEW posts from here are clean.
 
