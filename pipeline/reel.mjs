@@ -4,8 +4,9 @@ import { resolve } from 'node:path'
 import { PNG } from 'pngjs'
 import HME from 'h264-mp4-encoder'
 
-const W = 720, H = 1280, FPS = 24, DUR = 6.0
+const W = 720, H = 1280, FPS = 24, DUR = 6.4
 const N = Math.round(FPS * DUR)
+const OUT_NAME = 'active-not-biddable-reel.mp4'
 const FONT_DIR = new URL('./fonts', import.meta.url).pathname
 const b64 = (f) => readFileSync(`${FONT_DIR}/${f}`).toString('base64')
 const FB = b64('InterTight-Bold.woff'), FM = b64('InterTight-Medium.woff'), FJ = b64('JetBrainsMono-SemiBold.woff')
@@ -19,11 +20,12 @@ const MARK = `<svg viewBox="0 0 100 100" width="52" height="52" xmlns="http://ww
 <line x1="50" y1="50" x2="84.64" y2="30" stroke="url(#arm)" stroke-width="3.6" stroke-linecap="round"/><circle cx="72.5" cy="37" r="5" fill="#5bf08a"/><circle cx="50" cy="50" r="4.6" fill="#f8fafc"/></svg>`
 
 const scenes = [
-  { s: 0.0, e: 1.5, html: `<div class="big">One FAR clause decides who you actually <span class="g">compete against</span>.</div>` },
-  { s: 1.5, e: 3.0, html: `<div class="huge g">The Rule of Two</div><div class="mono">FAR 19.502-2</div>` },
-  { s: 3.0, e: 4.3, html: `<div class="big">If two or more small businesses can do the work at a fair price...</div>` },
-  { s: 4.3, e: 5.2, html: `<div class="big">...it's set aside for small business <span class="g">only</span>. Big primes are out.</div>` },
-  { s: 5.2, e: 6.0, html: `<div class="big">Find the set-asides that fit your business.</div><div class="chip">Free at samgov-hunter.com</div>` },
+  { s: 0.0, e: 1.1, html: `<div class="big">You filtered SAM.gov to <span class="g">"Active"</span> and drowned in dead ends.</div>` },
+  { s: 1.1, e: 2.2, html: `<div class="big">"Active" also returns Award Notices, Special Notices, and Sources Sought.</div>` },
+  { s: 2.2, e: 3.1, html: `<div class="huge g">Only 3 types</div><div class="mono">are truly biddable</div>` },
+  { s: 3.1, e: 4.5, html: `<div class="list"><div>Solicitation</div><div>Combined Synopsis/Solicitation</div><div>Presolicitation</div></div>` },
+  { s: 4.5, e: 5.4, html: `<div class="big">Filter to those three. Your feed becomes real work.</div>` },
+  { s: 5.4, e: 6.4, html: `<div class="big">Bonus: Award Notices are free intel.</div><div class="chip">Free at samgov-hunter.com</div>` },
 ]
 const sceneDivs = scenes.map((sc, i) => `<div class="scene" id="s${i}">${sc.html}</div>`).join('')
 
@@ -45,14 +47,16 @@ html,body{width:${W}px;height:${H}px;overflow:hidden}
 .word{font-family:'IT';font-weight:700;font-size:26px;letter-spacing:.14em}
 .word b{color:#34e27a}
 .scene{position:absolute;left:64px;right:64px;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:22px;opacity:0;will-change:opacity,transform}
-.big{font-family:'IT';font-weight:700;font-size:60px;line-height:1.1;letter-spacing:-.02em}
+.big{font-family:'IT';font-weight:700;font-size:52px;line-height:1.15;letter-spacing:-.02em}
 .huge{font-family:'IT';font-weight:700;font-size:82px;line-height:1.02;letter-spacing:-.03em;text-shadow:0 0 40px rgba(52,226,122,.4)}
-.mono{font-family:'JB';font-weight:600;font-size:32px;letter-spacing:.14em;color:#a7bdb4}
+.mono{font-family:'JB';font-weight:600;font-size:30px;letter-spacing:.1em;color:#a7bdb4}
 .g{color:#34e27a}
 .chip{font-family:'IT';font-weight:700;font-size:34px;color:#06110d;background:#34e27a;padding:18px 30px;border-radius:18px;box-shadow:0 12px 40px rgba(52,226,122,.35)}
 .handle{position:absolute;bottom:70px;left:0;right:0;text-align:center;font-family:'JB';font-weight:600;font-size:24px;color:#9fb6ad;letter-spacing:.03em}
 .barwrap{position:absolute;bottom:44px;left:64px;right:64px;height:5px;border-radius:3px;background:rgba(120,200,150,.16)}
 .bar{height:100%;border-radius:3px;background:#34e27a;width:0%;box-shadow:0 0 14px rgba(52,226,122,.6)}
+.list{display:flex;flex-direction:column;gap:20px;align-items:center}
+.list div{font-family:'IT';font-weight:700;font-size:42px;line-height:1.2;color:#f4f8f6;background:rgba(52,226,122,.10);border:1px solid rgba(52,226,122,.4);border-radius:16px;padding:16px 26px}
 </style></head><body>
 <div class="stage">
  <div class="rings"></div>
@@ -83,7 +87,8 @@ window.setFrame = (i, N, D) => {
 </script>
 </body></html>`
 
-const htmlPath = '/tmp/claude-0/-home-user-samgov-hunter/e5b04139-b149-5843-b4bd-e91f3f4c2cc3/scratchpad/ig/reel.html'
+const SCRATCH = new URL('.', import.meta.url).pathname
+const htmlPath = SCRATCH + 'reel.html'
 writeFileSync(htmlPath, html)
 
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome', args: ['--no-sandbox', '--force-color-profile=srgb'] })
@@ -92,6 +97,19 @@ const page = await ctx.newPage()
 await page.goto('file://' + resolve(htmlPath))
 await page.evaluate(() => document.fonts.ready)
 await page.waitForTimeout(150)
+
+if (process.argv[2] === 'preview') {
+  const times = [0.5, 1.6, 2.6, 3.8, 4.9, 5.9]
+  for (let idx = 0; idx < times.length; idx++) {
+    const t = times[idx]
+    const i = Math.round((t / DUR) * (N - 1))
+    await page.evaluate(([i, N, D]) => window.setFrame(i, N, D), [i, N, DUR])
+    await page.screenshot({ path: SCRATCH + `preview_${idx}.png`, clip: { x: 0, y: 0, width: W, height: H } })
+  }
+  console.log('PREVIEW DONE')
+  await browser.close()
+  process.exit(0)
+}
 
 const enc = await HME.createH264MP4Encoder()
 enc.width = W; enc.height = H; enc.frameRate = FPS; enc.quantizationParameter = 24; enc.outputFilename = 'reel.mp4'
@@ -105,7 +123,7 @@ for (let i = 0; i < N; i++) {
 }
 enc.finalize()
 const out = enc.FS.readFile(enc.outputFilename)
-writeFileSync('/tmp/claude-0/-home-user-samgov-hunter/e5b04139-b149-5843-b4bd-e91f3f4c2cc3/scratchpad/ig/reel.mp4', Buffer.from(out))
+writeFileSync(SCRATCH + OUT_NAME, Buffer.from(out))
 enc.delete()
 await browser.close()
 console.log('REEL DONE', W + 'x' + H, N + ' frames', (out.length/1024).toFixed(0) + 'KB')
