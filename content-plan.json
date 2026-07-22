@@ -1,0 +1,627 @@
+{
+  "pillars": [
+    {
+      "name": "GovCon Foundations",
+      "purpose": "Teach the free, mandatory basics — SAM.gov, UEI, NAICS, size standards, and the 2026 dollar thresholds — so newcomers can legally compete."
+    },
+    {
+      "name": "Myths & Mistakes",
+      "purpose": "Correct the costly misconceptions and self-inflicted errors (paid registration, self-certification, disability-rating myths) that disqualify small businesses."
+    },
+    {
+      "name": "Opportunity Intelligence",
+      "purpose": "Show how to read SAM.gov notice types, filter to biddable work, and mine Award Notices and Sources Sought for competitive intel."
+    },
+    {
+      "name": "Winning Proposals",
+      "purpose": "Break compliance, Section L/M, best-value strategy, past performance, and deadlines into repeatable, screen-proof wins."
+    },
+    {
+      "name": "SAM.gov Hunter in Action",
+      "purpose": "Demonstrate the product matching businesses to live opportunities and scoring fit, in short vertical reels."
+    }
+  ],
+  "ideaBank": [
+    "Carousel: the 4 federal set-aside certifications, one slide each (WOSB, SDVOSB, HUBZone, 8(a)) — the single hard eligibility test plus the payoff.",
+    "Myth reel: WOSB/EDWOSB self-certification died October 15, 2020 — walk the free certify.sba.gov path plus the annual attestation and 3-year exam.",
+    "The Rule of Two explainer (FAR 19.502-2) and why the $15K–$350K reserved band is where new contractors should start.",
+    "HUBZone: the map is the whole game — principal office in a HUBZone plus 35% of employees residing in one.",
+    "SDVOSB myth-buster: even a 0% service-connected rating qualifies, and it is SBA VetCert now, not the VA.",
+    "8(a) is a clock, not a badge — 9 years, once in a lifetime, tested on net worth <$850K, 3-yr AGI <$400K, assets <$6.5M.",
+    "Timely: 8(a) social-disadvantage rules are in active flux in 2026 — do not apply off old advice; verify at certify.sba.gov.",
+    "DUNS is dead, meet your UEI — the free 12-character ID generated inside SAM.gov that never expires (only registration lapses).",
+    "Myth: someone quoted you to 'register on SAM.gov' — registration and UEI are 100% free; the real site ends in .gov.",
+    "The 5 things to have in hand before you touch SAM.gov (legal name, address, EIN, bank EFT, primary NAICS).",
+    "Why your SAM registration got stuck — the exact-match trap: St vs Street, LLC vs L.L.C., IRS name mismatch.",
+    "365 days: the annual-renewal reminder graphic — lapse it and you're ineligible for award until reactivated.",
+    "UEI vs Registration vs CAGE — stop confusing these three (permanent ID vs annual renewal vs DLA-assigned code).",
+    "One NAICS code decides which contracts you even see — and the solicitation's NAICS, not your 'primary,' sets the size standard.",
+    "Revenue vs employees: how your NAICS is sized — a 5-year receipts average vs a 24-month headcount average.",
+    "Why one great year won't kick you out of small-business status — the 5-year receipts average (Runway Extension Act).",
+    "Construction gotcha: 236220 is small up to $45M, but Davis-Bacon (wage-rate) micro-purchases cap at $2,000, not $15,000.",
+    "3 reasons your dream contract never showed up in your feed — wrong NAICS, over the size standard, missing certification.",
+    "RFP vs RFQ vs IFB — how the award basis (lowest price vs best value) tells you where to spend your bid effort.",
+    "'Active' on SAM.gov does not mean biddable — the only three notice types you can actually bid.",
+    "The 3 dates that decide if you win: the questions deadline, the amendment date, and the offers-due date and time.",
+    "Answering a Sources Sought can flip a full-and-open buy into a small-business set-aside via the Rule of Two.",
+    "Award Notices are your competitor cheat sheet — pull the winner, agency, price, and recompete timing from each one.",
+    "'Late is late' (FAR 15.208): the rule, the 4:30 p.m. default when no time is stated, and the submit-hours-early habit.",
+    "Section L vs Section M — the two pages that decide if you win: organize by L, write to M.",
+    "Build a compliance matrix in 5 columns — turn a 100-page RFP into a line-by-line 'shall' checklist (template post).",
+    "The 1-page capability statement that gets you in the room — the must-have blocks including UEI, CAGE, NAICS, certs.",
+    "No past performance? How not to get screened out — CPARS and the FAR 15.305 'neutral' rule, plus teaming references.",
+    "7 ways contractors lose before evaluation even starts — late/wrong portal, page limits, missing form, SAM lapsed.",
+    "Product reel: paste your NAICS and watch live, biddable opportunities appear with a fit score on each."
+  ],
+  "hashtagBank": {
+    "core": [
+      "#govcon",
+      "#governmentcontracting",
+      "#federalcontracting",
+      "#smallbusiness",
+      "#SAMgov",
+      "#govcontracts",
+      "#smallbusinessowner",
+      "#federalcontractor",
+      "#B2G",
+      "#govconlife"
+    ],
+    "reach": [
+      "#smallbusinesstips",
+      "#entrepreneur",
+      "#businessowner",
+      "#smallbusinessgrowth",
+      "#startup",
+      "#businesstips",
+      "#femaleentrepreneur",
+      "#minorityownedbusiness",
+      "#buildyourbusiness",
+      "#smallbizowner"
+    ],
+    "niche": [
+      "#8a",
+      "#8abusiness",
+      "#WOSB",
+      "#womenownedsmallbusiness",
+      "#SDVOSB",
+      "#veteranownedbusiness",
+      "#veteranownedsmallbusiness",
+      "#HUBZone",
+      "#NAICS",
+      "#setaside",
+      "#capabilitystatement",
+      "#proposalwriting",
+      "#RFP",
+      "#sourcessought",
+      "#pastperformance",
+      "#SBAcertified"
+    ]
+  },
+  "hookBank": [
+    "Most small businesses miss [X]. Here is the rule that explains it.",
+    "'[Common belief]' — that ended on [date]. Here is what is true now.",
+    "The FAR clause nobody reads: [clause] decides [outcome].",
+    "Before you bid, confirm these three things —",
+    "You were disqualified before anyone read your proposal. Here is why.",
+    "One number on the solicitation decides whether you can even compete.",
+    "Stop paying for [free thing]. Here is the government's actual process.",
+    "The difference between [A] and [B] is the difference between winning and getting screened out.",
+    "New to federal contracting? Start in the $15K–$350K lane. Here is how.",
+    "This is free intel hiding in plain sight on SAM.gov —"
+  ],
+  "launchBatch": [
+    {
+      "day": 1,
+      "slot": "AM",
+      "pillar": "GovCon Foundations",
+      "format": "infographic",
+      "slug": "small-business-lane-2026",
+      "headline": "The federal small-business lane, 2026",
+      "accentWord": "small-business",
+      "subtitle": "The two dollar thresholds that decide how every federal buy is run.",
+      "rows": [
+        {
+          "tag": "$15K",
+          "name": "Micro-purchase",
+          "desc": "At/below: direct award, no competitive quotes needed"
+        },
+        {
+          "tag": "$2K",
+          "name": "Davis-Bacon",
+          "desc": "Wage-rate construction micro-purchase stays at $2,000"
+        },
+        {
+          "tag": "$350K",
+          "name": "SAT",
+          "desc": "Simplified Acquisition Threshold; streamlined buys"
+        },
+        {
+          "tag": "$15-350K",
+          "name": "Reserved lane",
+          "desc": "Generally set aside for small business (Rule of Two)"
+        },
+        {
+          "tag": "23%",
+          "name": "Prime goal",
+          "desc": "Gov targets 23% of prime dollars to small business"
+        }
+      ],
+      "caption": "Two numbers frame every federal purchase — and both went up on October 1, 2025.\n\nMicro-purchase threshold: $15,000. At or below it, an agency can direct-award with minimal competition, often on a government purchase card. It is the fastest on-ramp for a brand-new vendor.\n\nSimplified Acquisition Threshold: $350,000. Below it, buys use streamlined procedures under FAR Part 13.\n\nHere is the part that matters most: the band between the micro-purchase threshold and the SAT is generally reserved for small business under the Rule of Two (FAR 19.502-2). If the contracting officer reasonably expects offers from two or more capable small firms at fair prices, the buy is set aside for small business.\n\nOne exception to memorize: for wage-rate (Davis-Bacon) construction, the micro-purchase threshold is still $2,000 — not $15,000.\n\nIf you are new, this $15K–$350K lane is where you start.\n\nWant to see live opportunities in that lane matched to your business? Start free → samgov-hunter.com\n\nSave this so the 2026 numbers are one tap away, and send it to an owner who thinks federal work is out of reach.",
+      "hashtags": [
+        "#govcon",
+        "#governmentcontracting",
+        "#federalcontracting",
+        "#smallbusiness",
+        "#SAMgov",
+        "#govcontracts",
+        "#smallbusinessowner",
+        "#federalcontractor",
+        "#B2G",
+        "#govconlife",
+        "#smallbusinesstips",
+        "#entrepreneur",
+        "#businessowner",
+        "#smallbusinessgrowth",
+        "#businesstips",
+        "#NAICS",
+        "#setaside",
+        "#8a",
+        "#WOSB",
+        "#SDVOSB",
+        "#HUBZone",
+        "#SBAcertified",
+        "#buildyourbusiness",
+        "#minorityownedbusiness"
+      ]
+    },
+    {
+      "day": 1,
+      "slot": "MID",
+      "pillar": "Myths & Mistakes",
+      "format": "myth",
+      "slug": "myth-sam-registration-fee",
+      "headline": "You never pay to register in SAM.gov",
+      "accentWord": "never pay",
+      "subtitle": "Registration and your UEI are 100% free — anyone charging a fee is a reseller.",
+      "points": [
+        "Myth: you must pay a service to 'get registered' in SAM.gov.",
+        "Fact: entity registration and your 12-character UEI cost $0 through the government.",
+        "The UEI replaced the DUNS number on April 4, 2022 — it is generated inside SAM.gov.",
+        "The real system ends in .gov; fee sites are third-party resellers, not the government.",
+        "Your UEI never expires, but your registration does — every 365 days.",
+        "Let it lapse and you are invisible and ineligible for award until it is active again."
+      ],
+      "caption": "If a website is charging you to 'register in SAM.gov,' close the tab.\n\nEntity registration is free. Your Unique Entity ID (UEI) is free. The government has never charged for either.\n\nA few facts to keep you safe:\n- The UEI is a 12-character ID generated inside SAM.gov. It replaced the DUNS number on April 4, 2022 — you do not request it from anyone else.\n- The real system is sam.gov, and it ends in .gov. Fee sites are third-party resellers, not the government.\n- Your UEI never expires, but your registration does — every 365 days. Let it lapse and you are invisible and ineligible for award until it is active again.\n\nPaid services cannot beat the validation clock, either. The delay is the IRS TIN match and CAGE assignment — not a fee.\n\nSet a reminder 60 days before your registration expires and renew it yourself.\n\nWant your active profile matched to live opportunities the moment you are registered? Start free → samgov-hunter.com\n\nSave this and share it with anyone about to pay for a free service.",
+      "hashtags": [
+        "#govcon",
+        "#governmentcontracting",
+        "#federalcontracting",
+        "#smallbusiness",
+        "#SAMgov",
+        "#govcontracts",
+        "#smallbusinessowner",
+        "#federalcontractor",
+        "#B2G",
+        "#govconlife",
+        "#smallbusinesstips",
+        "#entrepreneur",
+        "#businessowner",
+        "#startup",
+        "#businesstips",
+        "#NAICS",
+        "#capabilitystatement",
+        "#SBAcertified",
+        "#veteranownedsmallbusiness",
+        "#womenownedsmallbusiness",
+        "#minorityownedbusiness",
+        "#buildyourbusiness",
+        "#smallbizowner",
+        "#setaside"
+      ]
+    },
+    {
+      "day": 1,
+      "slot": "PM",
+      "pillar": "GovCon Foundations",
+      "format": "reel",
+      "slug": "rule-of-two-reel",
+      "headline": "The FAR clause that reserves work for you",
+      "accentWord": "reserves",
+      "subtitle": "FAR 19.502-2 is the reason small-business set-asides exist.",
+      "points": [
+        "Hook: one FAR clause decides if a contract is reserved for small firms.",
+        "It is called the Rule of Two — FAR 19.502-2.",
+        "If the CO reasonably expects offers from 2+ capable small businesses at fair prices...",
+        "...the buy generally must be set aside for small business only.",
+        "Between $15K and $350K, that reservation is the default.",
+        "Answering a Sources Sought makes you evidence that 'the two' exist."
+      ],
+      "caption": "One FAR clause is the reason small-business set-asides exist. Learn it and you will read every opportunity differently.\n\nIt is the Rule of Two — FAR 19.502-2.\n\nThe plain-English version: if a contracting officer reasonably expects offers from at least two responsible small businesses at fair market prices, the acquisition generally must be set aside for small business only. Large primes are legally excluded from that competition.\n\nBetween the $15,000 micro-purchase threshold and the $350,000 Simplified Acquisition Threshold, that reservation is the default.\n\nThis is also why answering a Sources Sought notice matters so much. Your capability statement becomes direct evidence that 'the two' exist — which can shape a buy into a set-aside you are eligible for. Stay silent and you can be designed out before the solicitation ever posts.\n\nWant to see which live opportunities are set aside for your certifications? Start free → samgov-hunter.com\n\nSave this and send it to a teammate who thinks they are competing against the whole world.",
+      "hashtags": [
+        "#govcon",
+        "#governmentcontracting",
+        "#federalcontracting",
+        "#smallbusiness",
+        "#SAMgov",
+        "#govcontracts",
+        "#smallbusinessowner",
+        "#federalcontractor",
+        "#B2G",
+        "#govconlife",
+        "#smallbusinesstips",
+        "#entrepreneur",
+        "#businessowner",
+        "#smallbusinessgrowth",
+        "#setaside",
+        "#sourcessought",
+        "#RFP",
+        "#8a",
+        "#WOSB",
+        "#SDVOSB",
+        "#HUBZone",
+        "#NAICS",
+        "#minorityownedbusiness",
+        "#femaleentrepreneur"
+      ]
+    },
+    {
+      "day": 2,
+      "slot": "AM",
+      "pillar": "GovCon Foundations",
+      "format": "tips",
+      "slug": "sam-registration-checklist",
+      "headline": "5 things to have before you touch SAM.gov",
+      "accentWord": "before",
+      "subtitle": "The exact-match items that make or break your registration.",
+      "rows": [
+        {
+          "tag": "Name",
+          "name": "Legal name",
+          "desc": "Must match your state formation record exactly"
+        },
+        {
+          "tag": "Address",
+          "name": "Physical address",
+          "desc": "Consistent everywhere; St vs Street stalls validation"
+        },
+        {
+          "tag": "EIN",
+          "name": "TIN + name",
+          "desc": "Must match IRS files; L.L.C. vs LLC can fail"
+        },
+        {
+          "tag": "Bank",
+          "name": "EFT info",
+          "desc": "Routing + account for contracts; gov pays by EFT"
+        },
+        {
+          "tag": "NAICS",
+          "name": "Primary code",
+          "desc": "Sets your small-business size standard"
+        },
+        {
+          "tag": "Notary",
+          "name": "Admin letter",
+          "desc": "Notarized Entity Admin letter; verify on FSD.gov"
+        }
+      ],
+      "caption": "Most SAM.gov registrations do not fail because they are hard. They fail because one field does not match another record — exactly.\n\nHave these five in hand before you start, standardized everywhere:\n\n1) Legal name — matching your state formation record. 'LLC' vs 'L.L.C.' can trigger a rejection.\n2) Physical address — identical across records. 'St' vs 'Street' or a missing suite number stalls entity validation.\n3) EIN + legal name — must match IRS files. The TIN check adds days; a mismatch can add weeks.\n4) Bank EFT info — routing and account numbers. The government pays by electronic funds transfer, so contracts require the full 'All Awards' path.\n5) Primary NAICS — pick codes for work you actually do. Your primary NAICS drives your small-business size standard.\n\nOne more: new registrations still require a notarized Entity Administrator letter. GSA has adjusted this over time, so confirm the current step on FSD.gov before you submit.\n\nPlan for 2–4 weeks, not minutes. Start before a solicitation is due.\n\nWant live opportunities matched to your NAICS the day you are active? Start free → samgov-hunter.com\n\nSave this checklist and share it with your next teammate registering.",
+      "hashtags": [
+        "#govcon",
+        "#governmentcontracting",
+        "#federalcontracting",
+        "#smallbusiness",
+        "#SAMgov",
+        "#govcontracts",
+        "#smallbusinessowner",
+        "#federalcontractor",
+        "#B2G",
+        "#govconlife",
+        "#smallbusinesstips",
+        "#entrepreneur",
+        "#businessowner",
+        "#startup",
+        "#businesstips",
+        "#NAICS",
+        "#capabilitystatement",
+        "#SBAcertified",
+        "#buildyourbusiness",
+        "#smallbizowner",
+        "#veteranownedsmallbusiness",
+        "#womenownedsmallbusiness",
+        "#minorityownedbusiness",
+        "#setaside"
+      ]
+    },
+    {
+      "day": 2,
+      "slot": "MID",
+      "pillar": "Myths & Mistakes",
+      "format": "myth",
+      "slug": "myth-wosb-self-certify",
+      "headline": "You can still self-certify as a WOSB",
+      "accentWord": "self-certify",
+      "subtitle": "Self-certification for WOSB/EDWOSB set-asides ended October 15, 2020.",
+      "points": [
+        "Myth: check the woman-owned box in SAM and you are a certified WOSB.",
+        "Fact: self-certification for WOSB/EDWOSB set-asides ended October 15, 2020.",
+        "Certify free at certify.sba.gov or through an SBA-approved third-party certifier.",
+        "WOSB = 51% owned AND controlled by one or more women.",
+        "EDWOSB adds an economic-disadvantage test and gates different NAICS codes.",
+        "A WBENC or state 'woman-owned' cert does NOT win a federal WOSB set-aside."
+      ],
+      "caption": "'I checked the woman-owned box in SAM, so I am a certified WOSB.' Not for federal set-asides.\n\nSelf-certification for the WOSB and EDWOSB Federal Contract Program ended on October 15, 2020. To win a WOSB or EDWOSB set-aside, you must be formally certified.\n\nWhat that actually looks like:\n- Certify for free at certify.sba.gov, or through an SBA-approved third-party certifier.\n- WOSB = 51% owned AND controlled by one or more women.\n- EDWOSB adds an economic-disadvantage test — and SBA reserves different NAICS codes for EDWOSB vs WOSB, so confirm which applies to your code before you bid.\n- You attest annually that you still qualify and undergo a full program examination every three years.\n\nAnd a common mix-up: a WBENC or state 'woman-owned' certification helps with corporate supplier-diversity buyers, but it does not win a federal WOSB set-aside. That takes SBA certification.\n\nCertification is free. Nobody at SBA charges you to apply.\n\nWant to see which live set-asides your certification unlocks? Start free → samgov-hunter.com\n\nSave this and send it to a founder still relying on self-cert.",
+      "hashtags": [
+        "#govcon",
+        "#governmentcontracting",
+        "#federalcontracting",
+        "#smallbusiness",
+        "#SAMgov",
+        "#govcontracts",
+        "#smallbusinessowner",
+        "#federalcontractor",
+        "#B2G",
+        "#govconlife",
+        "#smallbusinesstips",
+        "#femaleentrepreneur",
+        "#businessowner",
+        "#womenownedsmallbusiness",
+        "#WOSB",
+        "#8abusiness",
+        "#setaside",
+        "#NAICS",
+        "#SBAcertified",
+        "#capabilitystatement",
+        "#minorityownedbusiness",
+        "#buildyourbusiness",
+        "#entrepreneur",
+        "#smallbizowner"
+      ]
+    },
+    {
+      "day": 2,
+      "slot": "PM",
+      "pillar": "Opportunity Intelligence",
+      "format": "reel",
+      "slug": "active-not-biddable-reel",
+      "headline": "'Active' on SAM.gov doesn't mean biddable",
+      "accentWord": "biddable",
+      "subtitle": "Most active notices aren't solicitations you can actually bid.",
+      "points": [
+        "Hook: you filtered to 'Active' and drowned in dead ends.",
+        "'Active' also returns Award Notices, Special Notices, and Sources Sought.",
+        "Only three notice types are truly biddable:",
+        "Solicitation. Combined Synopsis/Solicitation. Presolicitation.",
+        "Filter to those three and your feed becomes real work.",
+        "Bonus: Award Notices are free intel — winner, agency, price, recompete timing."
+      ],
+      "caption": "You filtered SAM.gov to 'Active,' got thousands of results, and gave up. The filter is lying to you — a little.\n\n'Active' also returns notices you cannot bid: Award Notices (someone already won), Special Notices, Justifications, and Sources Sought / RFIs (market research, not solicitations).\n\nThe truly biddable notice types are only three:\n- Solicitation\n- Combined Synopsis/Solicitation\n- Presolicitation (opening soon)\n\nFilter to those and your feed becomes real, winnable work.\n\nThen flip the script on the notices you cannot bid. An Award Notice is free competitive intel: it names the winner, the agency, and often the price and scope. Use it to find the recompete when the incumbent's contract ends — many run a base plus options up to about five years — and to target that winner as a teaming partner.\n\nChasing the wrong notice types is the quiet time-killer for new contractors.\n\nWant a feed that only shows biddable opportunities matched to you? Start free → samgov-hunter.com\n\nSave this and share it with someone drowning in their SAM.gov feed.",
+      "hashtags": [
+        "#govcon",
+        "#governmentcontracting",
+        "#federalcontracting",
+        "#smallbusiness",
+        "#SAMgov",
+        "#govcontracts",
+        "#smallbusinessowner",
+        "#federalcontractor",
+        "#B2G",
+        "#govconlife",
+        "#smallbusinesstips",
+        "#entrepreneur",
+        "#businessowner",
+        "#smallbusinessgrowth",
+        "#RFP",
+        "#sourcessought",
+        "#setaside",
+        "#NAICS",
+        "#pastperformance",
+        "#proposalwriting",
+        "#minorityownedbusiness",
+        "#veteranownedsmallbusiness",
+        "#buildyourbusiness",
+        "#businesstips"
+      ]
+    },
+    {
+      "day": 3,
+      "slot": "AM",
+      "pillar": "Winning Proposals",
+      "format": "infographic",
+      "slug": "section-l-vs-m",
+      "headline": "Section L vs M: win before you write",
+      "accentWord": "win",
+      "subtitle": "L tells you HOW to respond; M tells you how you're SCORED.",
+      "rows": [
+        {
+          "tag": "L",
+          "name": "Instructions",
+          "desc": "Format, page limits, forms, portal, deadline"
+        },
+        {
+          "tag": "M",
+          "name": "Evaluation",
+          "desc": "The exact factors your bid is scored against"
+        },
+        {
+          "tag": "Matrix",
+          "name": "Compliance",
+          "desc": "Track every 'shall' to where you answer it"
+        },
+        {
+          "tag": "Value",
+          "name": "Tradeoff/LPTA",
+          "desc": "Pay for quality vs lowest technically acceptable"
+        },
+        {
+          "tag": "Headings",
+          "name": "Mirror RFP",
+          "desc": "Name your sections after Section M factors"
+        },
+        {
+          "tag": "Late",
+          "name": "Hard wall",
+          "desc": "Late is late (FAR 15.208); submit hours early"
+        }
+      ],
+      "caption": "Most losing proposals were beaten before anyone scored them. Compliance beats creativity — every time.\n\nTwo sections run the whole game:\n- Section L = instructions. How to respond: format, page limits, required forms, the right portal, the deadline.\n- Section M = evaluation factors. Exactly how you will be scored.\n\nThe winning move is simple to say and rare to do: organize by L, write to M. Build your outline from Section L, then make sure every Section M factor is explicitly and visibly addressed — using the RFP's own headings. A time-pressed evaluator should never have to hunt.\n\nTwo more essentials:\n- Build a compliance matrix. Pull every 'shall' and 'must' into a spreadsheet mapping the requirement to where you answer it. It turns a 100-page RFP into a checklist.\n- Know your lane. Best value is a continuum: Tradeoff pays more for higher quality; LPTA awards the lowest price that is merely technically acceptable. Read Section M before you price.\n\nAnd remember: late is late (FAR 15.208). Submit hours early.\n\nWant the requirements surfaced for you so nothing gets missed? Start free → samgov-hunter.com\n\nSave this before your next bid — and share it with your proposal teammate.",
+      "hashtags": [
+        "#govcon",
+        "#governmentcontracting",
+        "#federalcontracting",
+        "#smallbusiness",
+        "#SAMgov",
+        "#govcontracts",
+        "#smallbusinessowner",
+        "#federalcontractor",
+        "#B2G",
+        "#govconlife",
+        "#proposalwriting",
+        "#RFP",
+        "#pastperformance",
+        "#capabilitystatement",
+        "#setaside",
+        "#NAICS",
+        "#SBAcertified",
+        "#smallbusinesstips",
+        "#entrepreneur",
+        "#businessowner",
+        "#businesstips",
+        "#buildyourbusiness",
+        "#8a",
+        "#minorityownedbusiness"
+      ]
+    },
+    {
+      "day": 3,
+      "slot": "MID",
+      "pillar": "Myths & Mistakes",
+      "format": "myth",
+      "slug": "myth-sdvosb-rating",
+      "headline": "SDVOSB myth: you need a high VA rating",
+      "accentWord": "high VA rating",
+      "subtitle": "A 0% service-connected rating still qualifies — and it's SBA VetCert now.",
+      "points": [
+        "Myth: you need a high VA disability rating to be an SDVOSB.",
+        "Fact: the disability must be service-connected — even a 0% rating qualifies.",
+        "Certification moved to SBA VetCert in January 2023; the VA no longer does it.",
+        "Requires 51% direct ownership AND day-to-day control by service-disabled veteran(s).",
+        "SDVOSB self-certification for set-asides was eliminated as of December 22, 2024.",
+        "The government-wide SDVOSB prime goal rose from 3% to 5%."
+      ],
+      "caption": "'My VA disability rating is not high enough to be an SDVOSB.' That is not how it works.\n\nFor the Service-Disabled Veteran-Owned Small Business program, the disability must be service-connected — but there is no minimum rating. Even a 0% service-connected rating qualifies.\n\nWhat actually matters:\n- 51% direct ownership AND day-to-day control by one or more service-disabled veterans.\n- Certification moved to SBA's VetCert program in January 2023 — the VA no longer certifies firms. Apply free at veterans.certify.sba.gov.\n- Self-certification for SDVOSB set-asides was eliminated as of December 22, 2024. Checking a box in SAM is not enough.\n\nThe demand is real: the government-wide SDVOSB prime goal rose from 3% to 5%, and self-certified awards no longer count toward it — which pushes agencies toward certified firms like yours.\n\nCertification is free. Do not pay anyone to file the application itself.\n\nWant to see the SDVOSB set-asides open right now? Start free → samgov-hunter.com\n\nSave this and send it to a veteran who counted themselves out.",
+      "hashtags": [
+        "#govcon",
+        "#governmentcontracting",
+        "#federalcontracting",
+        "#smallbusiness",
+        "#SAMgov",
+        "#govcontracts",
+        "#smallbusinessowner",
+        "#federalcontractor",
+        "#B2G",
+        "#govconlife",
+        "#SDVOSB",
+        "#veteranownedbusiness",
+        "#veteranownedsmallbusiness",
+        "#setaside",
+        "#NAICS",
+        "#SBAcertified",
+        "#smallbusinesstips",
+        "#entrepreneur",
+        "#businessowner",
+        "#businesstips",
+        "#buildyourbusiness",
+        "#minorityownedbusiness",
+        "#capabilitystatement",
+        "#smallbizowner"
+      ]
+    },
+    {
+      "day": 3,
+      "slot": "PM",
+      "pillar": "Opportunity Intelligence",
+      "format": "spotlight",
+      "slug": "award-notices-intel",
+      "headline": "Award Notices are your competitor cheat sheet",
+      "accentWord": "cheat sheet",
+      "subtitle": "You can't bid them — but they're the best free intel on SAM.gov.",
+      "points": [
+        "An Award Notice names the winner, the agency, and often the price and scope.",
+        "Find the recompete — most contracts run a base plus options up to ~5 years.",
+        "Target the winner as a teaming or subcontracting partner.",
+        "Benchmark realistic pricing against what actually won.",
+        "Treat every award in your NAICS as free market research."
+      ],
+      "caption": "You cannot bid an Award Notice — someone already won. But it might be the most valuable thing in your SAM.gov feed.\n\nEvery Award Notice names the winner, the agency, and often the price and scope. Read it like an intelligence brief:\n\n1) Find the recompete. Most contracts run a base period plus options — often up to about five years. Note when the incumbent's term ends and start positioning now, not when the next solicitation drops.\n2) Target the winner as a partner. A prime that just won work in your lane is a teaming or subcontracting lead — a proven way for newer firms to build the relevant past performance evaluators reward.\n3) Benchmark pricing. What actually won tells you what 'realistic' looks like far better than a guess.\n4) Map the buyer. Repeated awards in your NAICS show which agencies actually spend in your space.\n\nTreat every award in your NAICS as free market research.\n\nWant live opportunities and their award history matched to your business? Start free → samgov-hunter.com\n\nSave this and share it with a contractor who only looks at open solicitations.",
+      "hashtags": [
+        "#govcon",
+        "#governmentcontracting",
+        "#federalcontracting",
+        "#smallbusiness",
+        "#SAMgov",
+        "#govcontracts",
+        "#smallbusinessowner",
+        "#federalcontractor",
+        "#B2G",
+        "#govconlife",
+        "#smallbusinesstips",
+        "#entrepreneur",
+        "#businessowner",
+        "#smallbusinessgrowth",
+        "#pastperformance",
+        "#RFP",
+        "#setaside",
+        "#NAICS",
+        "#capabilitystatement",
+        "#minorityownedbusiness",
+        "#veteranownedsmallbusiness",
+        "#buildyourbusiness",
+        "#businesstips",
+        "#proposalwriting"
+      ]
+    }
+  ],
+  "reelScripts": [
+    {
+      "title": "Your NAICS code runs your whole feed",
+      "hook": "One 6-digit code decides which federal contracts you'll ever see.",
+      "scenes": [
+        "Text on screen: 'Every federal solicitation is tagged with a NAICS code.'",
+        "The contracting officer assigns it based on the principal purpose of the work (FAR 19.102).",
+        "Reveal: the solicitation's NAICS — not your 'primary' code — sets the size standard that governs that bid.",
+        "Split screen: small under one NAICS, 'other than small' under another, the same day.",
+        "Tip: list the codes for work you actually do — code-stuffing hurts you.",
+        "End card: match live opportunities to your codes — Start free → samgov-hunter.com"
+      ],
+      "caption": "The most misunderstood thing in federal contracting: your NAICS code is not paperwork — it is the filter that decides which opportunities reach you and whether you even qualify. Each solicitation lists a NAICS code, and SBA's size standard for THAT code decides if you count as small for THAT bid — so you can be small under one code and not another on the same day. Set the wrong codes and matching contracts never surface. Want your codes matched to live opportunities with a fit score on each? Start free → samgov-hunter.com  Save this and send it to someone still guessing at their codes. #govcon #NAICS #smallbusiness #SAMgov #governmentcontracting #setaside"
+    },
+    {
+      "title": "8(a) is a clock, not a badge",
+      "hook": "The 8(a) program is powerful — and most people misunderstand what it actually is.",
+      "scenes": [
+        "Text: '8(a) = a 9-year business-development program. Once in a lifetime.'",
+        "Show the payoff: sole-source access plus set-aside competitions.",
+        "Eligibility gate: personal net worth under $850K.",
+        "3-year average adjusted gross income under $400K.",
+        "Total assets under $6.5M.",
+        "Caution card: the social-disadvantage rules are changing in 2026 — verify at certify.sba.gov before you apply.",
+        "End card: Start free → samgov-hunter.com"
+      ],
+      "caption": "8(a) can transform a small business — but it is a clock, not a trophy. Nine years, once in a lifetime, for firms owned 51% by individuals who are socially AND economically disadvantaged, with real economic tests: net worth under $850K, 3-year average AGI under $400K, total assets under $6.5M. And the social-disadvantage rules are in active flux in 2026, so never apply off old advice — check certify.sba.gov for current guidance. Want to see the 8(a) set-asides open right now? Start free → samgov-hunter.com  Save this and share it with a founder weighing 8(a). #govcon #8a #smallbusiness #SBAcertified #governmentcontracting #setaside"
+    },
+    {
+      "title": "The 3 dates that decide if you win",
+      "hook": "You can write a brilliant proposal and still lose on a calendar.",
+      "scenes": [
+        "Text: 'Every solicitation hides three deadlines. Miss the wrong one and you're out.'",
+        "Date 1: the questions (Q&A) deadline — earlier than you think, and the one people miss.",
+        "Date 2: the amendment date — an SF30 can move the due date or change the work; acknowledge every amendment or your bid can be tossed.",
+        "Date 3: the offers-due date and time — late is late (FAR 15.208). No time stated? It defaults to 4:30 p.m. local.",
+        "Rule of thumb: submit hours early, never at the deadline.",
+        "End card: never miss a date — Start free → samgov-hunter.com"
+      ],
+      "caption": "Compliance beats creativity, and timing is compliance. Three dates run every bid: the questions deadline (earlier than the proposal deadline, and the one most people miss), the amendment date (acknowledge every SF30 or your bid can be found nonresponsive), and the offers-due date and time (late is late under FAR 15.208; a missing time defaults to 4:30 p.m. local). Build a buffer and submit hours early. Want deadlines surfaced on every opportunity you're tracking? Start free → samgov-hunter.com  Save this and share it with your proposal team. #govcon #proposalwriting #RFP #federalcontracting #smallbusiness #governmentcontracting"
+    }
+  ]
+}
