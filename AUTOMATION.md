@@ -23,9 +23,11 @@ VOICE RULES (critical, the account must never read as AI-written):
 - Never use: delve, leverage, seamless, robust, elevate, unlock, harness, navigate, landscape, realm, testament, crucial, pivotal, game-changer.
 - Contractions on. Short, direct sentences. One soft CTA per caption ("It's free to start at samgov-hunter.com"). At most one "save this" nudge, not every time.
 
+GUIDE MECHANIC (do this on EVERY post): ManyChat is wired so anyone who comments or DMs the word GUIDE gets our free starter guide auto-sent. Append content-plan.json guideMechanic.appendToEveryCaption to every caption, after the CTA and before the hashtags. It has no em dashes or arrows already, keep it that way.
+
 STEPS:
 1) Get the repo (it is PUBLIC, clone without auth): git clone https://github.com/JJG1488/samgovhunter-social /workspace/samgovhunter-social (if it exists, git -C /workspace/samgovhunter-social pull). Read content-plan.json and posted.json.
-2) Pick the next item = the first content-plan.json launchBatch item whose slug is NOT in posted.json.posted. If all are posted, compose a new post from content-plan.json ideaBank in the voice above. Roughly one post per day should be a Reel.
+2) Pick the next item = the first content-plan.json launchBatch item whose slug is NOT in posted.json.posted. If all are posted, compose a new post from content-plan.json ideaBank in the voice above. Roughly one post per day should be a Reel, and roughly twice a week publish the standingPosts "free-guide" item (posts/free-guide.jpg already exists) to keep the guide offer in rotation.
 3) Render only if posts/<slug>.jpg or .mp4 is not already in the repo. Chromium: /opt/pw-browsers/chromium-1194/chrome-linux/chrome. In a scratch dir install all deps at once: npm i playwright-core pngjs h264-mp4-encoder (a second npm i --no-save prunes earlier ones). Fonts are in pipeline/fonts/.
    - Image: write the post as JSON and run node pipeline/render-card.mjs <post.json> <outbase> (rows[] = numbered list; points[] = bullet/myth-truth lines with {kind:"x"}/{kind:"check"}/{kind:"dot"}). Outputs 1080x1080 .jpg.
    - Reel: adapt pipeline/reel.mjs (720x1280, ~6s). Outputs .mp4.

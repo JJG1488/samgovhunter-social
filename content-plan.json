@@ -109,6 +109,57 @@
     "New to federal contracting? Start in the $15K–$350K lane. Here is how.",
     "This is free intel hiding in plain sight on SAM.gov —"
   ],
+  "guideMechanic": {
+    "note": "ManyChat is wired on this account: anyone who comments or DMs the word GUIDE gets the free federal-contracting starter guide auto-sent. Use it on EVERY post.",
+    "appendToEveryCaption": "PS. Want the free federal-contracting starter guide? Comment GUIDE below (or DM the word GUIDE) and I'll send it right over.",
+    "rule": "Append that line to every caption, after the CTA and before the hashtags. It already has no em dashes or arrows. Keep it clean like the rest of the caption."
+  },
+  "standingPosts": [
+    {
+      "slug": "free-guide",
+      "format": "infographic",
+      "pillar": "GovCon Foundations",
+      "evergreen": true,
+      "cadence": "Repostable about twice a week. Already rendered at posts/free-guide.jpg.",
+      "caption": "New to federal contracting? I put the first steps most people skip into one free starter guide.\n\nInside:\n1) Register in SAM.gov the right way, without paying a reseller a cent.\n2) Pick the NAICS codes that actually surface contracts you can win.\n3) Find the set-asides you may already qualify for.\n4) Read a solicitation and hit every deadline that matters.\n\nIt's free. Comment GUIDE below and I'll send it straight to you.\n\nWant to skip ahead and see live opportunities matched to your business? Start free at samgov-hunter.com",
+      "hashtags": [
+        "#govcon",
+        "#governmentcontracting",
+        "#federalcontracting",
+        "#smallbusiness",
+        "#SAMgov",
+        "#govcontracts",
+        "#smallbusinessowner",
+        "#federalcontractor",
+        "#B2G",
+        "#govconlife",
+        "#smallbusinesstips",
+        "#entrepreneur",
+        "#businessowner",
+        "#smallbusinessgrowth",
+        "#NAICS",
+        "#setaside",
+        "#8a",
+        "#WOSB",
+        "#SDVOSB",
+        "#HUBZone",
+        "#SBAcertified",
+        "#buildyourbusiness",
+        "#minorityownedbusiness"
+      ]
+    }
+  ],
+  "adCreatives": [
+    {
+      "slug": "ad-find-contracts",
+      "purpose": "Paid Facebook / Instagram ad creative (NOT an organic feed post). 1080x1080 at posts/ad-find-contracts.jpg.",
+      "primaryText": "Stop scrolling SAM.gov for hours. SAM.gov Hunter matches your business to live federal contracts you can actually bid on, scores each one for fit, and helps you write the proposal. Built for small businesses new to government contracting. Start free, no card required.",
+      "headline": "Find federal contracts that fit your business",
+      "description": "Matched to your NAICS and certifications. Start free.",
+      "cta": "Sign Up",
+      "url": "https://www.samgov-hunter.com"
+    }
+  ],
   "launchBatch": [
     {
       "day": 1,

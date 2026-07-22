@@ -1,5 +1,8 @@
 # @sam.govhunter — content assets + pipeline
 
+**New session? Read [`HANDOFF.md`](HANDOFF.md) first** — full state, what's live, what's owed,
+and the next-session task order.
+
 Public image host + reproducible render pipeline for the **@sam.govhunter** Instagram
 (SAM.gov Hunter — matches small businesses to live federal contract opportunities).
 
