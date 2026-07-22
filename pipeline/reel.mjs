@@ -53,6 +53,8 @@ html,body{width:${W}px;height:${H}px;overflow:hidden}
 .g{color:#34e27a}
 .chip{font-family:'IT';font-weight:700;font-size:34px;color:#06110d;background:#34e27a;padding:18px 30px;border-radius:18px;box-shadow:0 12px 40px rgba(52,226,122,.35)}
 .handle{position:absolute;bottom:70px;left:0;right:0;text-align:center;font-family:'JB';font-weight:600;font-size:24px;color:#9fb6ad;letter-spacing:.03em}
+.gtag{position:absolute;bottom:108px;left:0;right:0;text-align:center;font-family:'ITM';font-weight:500;font-size:23px;color:#9fb6ad}
+.gtag b{font-family:'IT';font-weight:700;color:#34e27a}
 .barwrap{position:absolute;bottom:44px;left:64px;right:64px;height:5px;border-radius:3px;background:rgba(120,200,150,.16)}
 .bar{height:100%;border-radius:3px;background:#34e27a;width:0%;box-shadow:0 0 14px rgba(52,226,122,.6)}
 .list{display:flex;flex-direction:column;gap:20px;align-items:center}
@@ -64,6 +66,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden}
  <div class="dots"></div>
  <div class="brand">${MARK}<div class="word">SAM.GOV <b>HUNTER</b></div></div>
  ${sceneDivs}
+ <div class="gtag">Comment <b>GUIDE</b> for the free guide</div>
  <div class="handle">@sam.govhunter</div>
  <div class="barwrap"><div class="bar" id="bar"></div></div>
 </div>

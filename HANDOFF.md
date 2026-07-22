@@ -97,15 +97,39 @@ The operator was explicit: no AI tells. Enforced in the paste-in prompt and in e
   realm, testament, crucial, pivotal, game-changer.
 - Contractions on. Short direct sentences. One soft CTA per caption.
 
-## 6. The Guide mechanic (ManyChat) — applies to EVERY post
+## 6. The Guide mechanic (ManyChat) — on EVERY post, three ways
 
 The operator set up **ManyChat**: anyone who comments or DMs the word **GUIDE** on any post gets
-the free federal-contracting starter guide auto-sent. So:
-- `content-plan.json → guideMechanic.appendToEveryCaption` is a clean (no em-dash/arrow) line to
-  append to **every** caption, after the CTA and before the hashtags.
-- `content-plan.json → standingPosts` has a dedicated **free-guide** post
-  (`posts/free-guide.jpg`, already rendered) whose whole purpose is the guide offer. Rotate it in
-  ~twice a week.
+the free federal-contracting starter guide auto-sent. The operator was explicit that EVERY post,
+reel, and carousel must mention it. It is now guaranteed structurally, not left to the runtime:
+1. **Caption** — every launchBatch, reelScript, and standingPost caption in `content-plan.json`
+   has a "comment GUIDE" line baked directly into the text.
+2. **Image** — `pipeline/render-card.mjs` renders a "Comment GUIDE for the free starter guide"
+   line in the footer of every card automatically (skipped only when the CTA already says GUIDE,
+   e.g. the free-guide post, or when a post sets `"guideBar": false`, e.g. the ad creative).
+3. **Reel** — `pipeline/reel.mjs` draws a persistent "Comment GUIDE for the free guide" line in
+   the bottom chrome of every reel (the `.gtag` div), independent of scene content.
+- `content-plan.json → standingPosts` also has a dedicated **free-guide** post
+  (`posts/free-guide.jpg`) whose whole purpose is the guide offer. Rotate it in ~twice a week.
+- `content-plan.json → guideMechanic` documents the mechanic; `appendToEveryCaption` is a spare
+  clean line for any ad-hoc caption that somehow lacks one.
+
+### 6a. Content cleanup done 2026-07-22 (captions + on-image text) — and the live-post caveat
+- All published-content text in `content-plan.json` (captions AND on-image subtitle/points/rows/
+  scenes) was rewritten to remove every em dash, en dash, and arrow character, plus the banned
+  "not X, it's Y" inversion and banned AI words. A 13-agent adversarial GovCon fact-check ran over
+  the captions: 10 passed clean; 3 were fixed (see below). `ideaBank`/`hookBank` still contain
+  dashes on purpose — they are internal brainstorm notes the Routine rewrites, never posted verbatim.
+- **Fact fix:** `sam-registration-checklist` claimed "new registrations still require a notarized
+  Entity Administrator letter." GSA dropped that requirement around April 2022 (UEI transition), so
+  the claim was removed and the shaky 6th "Notary" row was deleted — the card is now 5 rows, which
+  also matches its "5 things" headline. Replaced with an accurate entity-validation note.
+- **⚠️ LIVE-POST CAVEAT:** posts 1-6 (§1) were rendered/published BEFORE this cleanup, so some of
+  those live images carry em dashes in their on-image text and none carry the on-image GUIDE line,
+  and the live `sam-registration-checklist` post still shows the outdated "Notary / notarized Entity
+  Admin letter" row. They are not auto-fixable via the API (no caption/image edit after publish).
+  If the operator cares, the fix is to delete + repost those specific ones from the now-clean plan;
+  otherwise they age out of the grid naturally. All NEW posts from here are clean.
 
 ## 7. Reel audio — PENDING (operator said "pursue the audio path")
 

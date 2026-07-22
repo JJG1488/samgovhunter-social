@@ -49,6 +49,10 @@ function body(post) {
 
 const post = JSON.parse(readFileSync(process.argv[2], 'utf8'))
 const outBase = process.argv[3]
+// The GUIDE mention appears on every card by default (ManyChat comment trigger),
+// skipped only when the CTA already says GUIDE (the dedicated guide post) or when a post opts out (ads).
+const showGuide = post.guideBar !== false && !/GUIDE/i.test(post.cta || '')
+const gline = showGuide ? `<div class="gline">Comment <b>GUIDE</b> for the free starter guide</div>` : ''
 
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:'IT';src:url(data:font/woff;base64,${FONT.bold}) format('woff');font-weight:700}
@@ -59,7 +63,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
  background:radial-gradient(1100px 700px at 80% -8%, rgba(34,197,94,.16), transparent 60%),radial-gradient(900px 900px at -12% 108%, rgba(34,197,94,.10), transparent 55%),linear-gradient(160deg,#07130f 0%,#0a1a16 55%,#081512 100%)}
 .canvas::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(120,200,150,.08) 1.2px,transparent 1.2px);background-size:34px 34px;opacity:.55;mask-image:linear-gradient(180deg,#000,transparent 70%)}
 .deco{position:absolute;right:-150px;top:-150px;width:640px;height:640px}
-.pad{position:absolute;inset:0;padding:70px 74px 54px;display:flex;flex-direction:column}
+.pad{position:absolute;inset:0;padding:70px 74px 50px;display:flex;flex-direction:column}
 .head{display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:18px}
 .mark{width:66px;height:66px;filter:drop-shadow(0 6px 18px rgba(34,197,94,.28))}
@@ -72,30 +76,33 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 .sub{font-family:'ITM';font-weight:500;font-size:27px;line-height:1.32;color:#a7bdb4;margin-top:20px;max-width:900px}
 /* list (infographic) */
 .list{margin-top:24px;display:flex;flex-direction:column}
-.row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;padding:15px 4px;border-top:1px solid rgba(120,200,150,.14)}
+.row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;padding:13px 4px;border-top:1px solid rgba(120,200,150,.14)}
 .row:first-child{border-top:none}
 .tag{font-family:'JB';font-weight:600;font-size:22px;color:#34e27a;background:rgba(52,226,122,.12);border:1px solid rgba(52,226,122,.38);padding:11px 14px;border-radius:14px;min-width:128px;text-align:center}
 .rname{font-family:'IT';font-weight:700;font-size:29px;line-height:1.1}
 .rdesc{font-family:'ITM';font-weight:500;font-size:22px;line-height:1.28;color:#9db3ab;margin-top:3px}
 .rnum{font-family:'JB';font-weight:600;font-size:25px;color:rgba(120,200,150,.30)}
 /* points */
-.points{margin-top:30px;display:flex;flex-direction:column;gap:22px}
+.points{margin-top:28px;display:flex;flex-direction:column;gap:20px}
 .pt{display:flex;align-items:flex-start;gap:22px}
 .mk{flex:0 0 auto;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'IT';font-weight:700;font-size:26px;margin-top:2px}
 .mkx{background:rgba(239,68,68,.14);border:1px solid rgba(239,68,68,.45);color:#f87171}
 .mkc{background:rgba(52,226,122,.14);border:1px solid rgba(52,226,122,.5);color:#34e27a}
 .mkd{background:#34e27a;width:14px;height:14px;border-radius:50%;margin:12px 16px 0 16px;box-shadow:0 0 14px rgba(52,226,122,.5)}
 .pttext{font-family:'ITM';font-weight:500;font-size:${post.pointSize || 31}px;line-height:1.3;color:#e7efec}
-.foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:16px}
+.foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:22px;padding-top:20px;border-top:1px solid rgba(120,200,150,.14)}
+.footL{display:flex;flex-direction:column;gap:6px;min-width:0}
 .handle{font-family:'JB';font-weight:600;font-size:23px;color:#8fa7a0}
-.cta{font-family:'IT';font-weight:700;font-size:24px;color:#06110d;background:#34e27a;padding:15px 24px;border-radius:16px;box-shadow:0 10px 30px rgba(52,226,122,.28)}
+.gline{font-family:'ITM';font-weight:500;font-size:20px;color:#9db3ab}
+.gline b{font-family:'IT';font-weight:700;color:#34e27a;letter-spacing:.02em}
+.cta{font-family:'IT';font-weight:700;font-size:24px;color:#06110d;background:#34e27a;padding:15px 24px;border-radius:16px;box-shadow:0 10px 30px rgba(52,226,122,.28);white-space:nowrap;flex:0 0 auto}
 </style></head><body><div class="canvas">${DECO}<div class="pad">
 <div class="head"><div class="brand">${MARK}<div class="word">SAM.GOV <b>HUNTER</b></div></div><div class="kicker">${post.kicker}</div></div>
 <div class="rule"></div>
 <div class="title">${post.title}</div>
 <div class="sub">${post.subtitle}</div>
 ${body(post)}
-<div class="foot"><div class="handle">@sam.govhunter</div><div class="cta">${post.cta || 'Start free at samgov-hunter.com'}</div></div>
+<div class="foot"><div class="footL"><div class="handle">@sam.govhunter</div>${gline}</div><div class="cta">${post.cta || 'Start free at samgov-hunter.com'}</div></div>
 </div></div></body></html>`
 
 const htmlPath = `${outBase}.html`
