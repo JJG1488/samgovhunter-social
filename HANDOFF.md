@@ -12,10 +12,16 @@ opportunities; app at https://www.samgov-hunter.com). Goal of the account: **fre
 
 - **Account:** @sam.govhunter, IG Business account id `17841427565194788`, published through the
   Zapier **"Instagram for Business"** connection (Graph API, `graph.facebook.com` only).
-- **Posted so far (Day 1, 2026-07-22)** — tracked in `posted.json`:
-  1. `set-asides` (infographic) — first post, permalink `/p/DbFK1rdjXyl/`.
-  2. `myth-sam-registration-fee` (infographic, myth format).
+- **Posted so far (Day 1, 2026-07-22, 6 live)** — tracked in `posted.json`. The scheduled Routine
+  is already publishing autonomously (it posted items 4-6 on its own and pushed state each time):
+  1. `set-asides` (infographic) — first post, `/p/DbFK1rdjXyl/`.
+  2. `myth-sam-registration-fee` (infographic, myth).
   3. `rule-of-two` (Reel / MP4, silent).
+  4. `small-business-lane-2026` (infographic) `/p/DbGXz7niQGp/`.
+  5. `sam-registration-checklist` (infographic) `/p/DbGzJ6KktvZ/`.
+  6. `myth-wosb-self-certify` (infographic) `/p/DbG6L37kS9Z/`.
+  (`rule-of-two-reel` in launchBatch is the same topic as the posted `rule-of-two` video, so it is
+  correctly marked posted, no duplicate.)
 - **Publishing cadence:** a Claude **Routine** ("Instagram auto-post") fires **5x/day** —
   8am / 11am / 1pm / 4pm / 7pm ET (`0 12,15,17,20,23 * * *` UTC). It has the Zapier Instagram
   connector attached (only connectors attached via the Routines UI carry into scheduled runs;
@@ -47,11 +53,10 @@ the session git proxy). Vercel Blob and general web are unreachable. So:
   caption) → creation id → `.../media_publish`. Reels need `media_type=REELS`, `share_to_feed=true`,
   and a poll of `?fields=status_code` until `FINISHED` before publish.
 
-**Open risk:** it is unproven whether a *scheduled/fired* Routine session can `git push` to this
-repo (the interactive session pushes via `add_repo` + the session git proxy; the ambient
-`GITHUB_TOKEN` is read-only and cannot push). If a scheduled run cannot push, it cannot host new
-images or save `posted.json` state. The paste-in prompt tells the run to STOP and report if push
-fails. Verify this on the first live fire and note the result here.
+**RESOLVED (2026-07-22):** scheduled Routine fires CAN clone, render, push images, and push
+`posted.json` state — proven by the 3 posts the schedule published on its own (items 4-6 above,
+each with its own `post:` + `state:` commits on `origin/main`). No hosting/state workaround needed.
+The paste-in prompt still tells a run to STOP and report if a push ever fails, as a safety net.
 
 ## 4. Render pipeline (reproducible)
 
