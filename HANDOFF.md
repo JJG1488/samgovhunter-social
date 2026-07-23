@@ -200,14 +200,17 @@ become a Story.
 
 ## 9. NEXT SESSION — priority order
 
-1. **Reel audio (WebCodecs)** if the operator still wants it (§7). Operator said "pursue the audio
-   path"; confirm before spending the build. This is the main remaining feature ask.
-2. **True swipeable carousels** (multi-slide posts) if wanted — the pipeline does single images,
+Nothing here is required or blocking. Reel audio (§7), reel pacing, the content bank, stories, GUIDE
+everywhere, and the ad creative are all DONE. These are optional/future:
+
+1. **True swipeable carousels** (multi-slide posts) if wanted — the pipeline does single images,
    reels, and stories today, not multi-image carousels (the Routine renders carousel-format ideas as
-   a single infographic).
-3. **Vertical (1080x1920) ad creative** for Stories/Reels ad placements (§8) — `render-story.mjs` is
-   a good base for it.
-4. **More Story graphics** as needed (§8a) — any of the 311 topics can become a Story.
+   a single infographic). Only build if the operator wants real swipeable carousels.
+2. **Vertical (1080x1920) ad creative** for Stories/Reels ad placements (§8) — `render-story.mjs` is
+   a good base for it. The square 1080x1080 ad already exists.
+3. **More Story graphics** as needed (§8a) — any of the 311 topics can become a Story.
+4. **Optional cleanup of pre-2026-07-22 live posts** (§6a caveat) — a handful of early posts predate
+   the AI-tell/GUIDE cleanup; delete+repost only if the operator cares, else they age out.
 5. Content is stocked: 298-topic `ideaBank` / 311 distinct topics (§10a), ~90-day runway. Regenerate
    more via the `govcon-content-bank` workflow pattern when it thins out (~2 months).
 
