@@ -159,28 +159,44 @@ The account's very first request was a **Facebook ad asset** (first-time adverti
   more / sign up" button on a scroll. Recommend 1080x1080 (feed) plus a 1080x1920 version for
   Stories/Reels ad placements (that vertical version is not built yet).
 
+## 8a. Story graphics (built 2026-07-23)
+
+Three 1080x1920 Story graphics are in `stories/`, rendered by `pipeline/render-story.mjs`:
+- `story-start-free.jpg` — signups CTA ("Find contracts that fit your business" + Start free).
+- `story-guide.jpg` — lead capture ("Grab the free starter guide" + Reply GUIDE).
+- `story-rule-of-two.jpg` — an educational tip (recycled from a feed topic).
+
+Design: brand system; top ~250px kept clear (profile UI); bottom ~340px kept clear for the link
+sticker + reply bar, with a green chevron cue marking where the sticker goes.
+
+**Publishing (important limitation):** the Graph API can publish a Story (`media_type=STORIES`) but
+**cannot add a tappable link sticker** — that is an interactive element only addable in the IG app.
+Two modes:
+- **Manual (recommended, gives the clickable link):** download the JPG from `stories/`, post it as a
+  Story in the IG app, and drop a **link sticker to https://www.samgov-hunter.com** in the clear
+  bottom band where the chevron points. Closest thing to a clickable button on organic.
+- **Auto (Routine, no tappable link):** a Story posted via the API shows the image only. If you ever
+  auto-post Stories, render them with `"linkCue": false` so the "tap the link" cue is not misleading,
+  and rely on the bio link. The guide Story still works auto-posted because "Reply GUIDE" is a DM,
+  which ManyChat catches.
+
+**Render more:** `node pipeline/render-story.mjs <story.json> stories/<slug>`. JSON supports `kicker`,
+`title` (with `<span class="g">word</span>`), `titleSize`, `subtitle`, optional `points` (2-3),
+`ctaKind` ("link" | "guide"), `cta`, `linkCue`, `guideLine`. Any of the 311 content-plan topics can
+become a Story.
+
 ## 9. NEXT SESSION — priority order
 
-1. **Story graphics (top task, deferred from this session to protect context).** Build 1080x1920
-   vertical Story assets. Spec:
-   - Reuse the `render-card.mjs` look but at 1080x1920 (make a `render-story.mjs` variant: taller
-     canvas, larger type, brand mark top, single punchy stat or one tip per story).
-   - **Leave a clear lower-third safe zone** (~bottom 320px clear) for a **link sticker** — Stories
-     support tappable link stickers to samgov-hunter.com, which is the closest thing to a clickable
-     button on organic. Also leave top ~250px clear (avatar/close UI).
-   - Start with 3: (a) "Swipe up / tap to start free" CTA story, (b) one guide-offer story
-     ("Comment GUIDE" won't work on stories — use the link sticker instead), (c) one stat/tip story
-     recycled from a feed post. Publishing Stories via the Graph API uses `media_type=STORIES`.
-   - Confirm the Zapier connection has the Stories publish permission before promising auto-Stories;
-     if not, hand the operator the story JPGs to post manually with a link sticker.
-2. **Confirm the Routine paste-in swap happened** and whether the first scheduled fire could push to
-   this repo (§3 open risk). If push fails on schedule, redesign so state/hosting doesn't need a push
-   (e.g., pre-render a week of posts in advance during interactive sessions).
-3. **Vertical (1080x1920) ad creative** for Stories/Reels ad placements (§8).
-4. **Reel audio (WebCodecs)** if the operator still wants it (§7). Operator already said "pursue the
-   audio path"; confirm before spending the build.
-5. Keep the content engine fed: `content-plan.json` has a 30-item `ideaBank`, `hookBank`,
-   `hashtagBank` (core/reach/niche), and 3 more `reelScripts` not yet produced.
+1. **Reel audio (WebCodecs)** if the operator still wants it (§7). Operator said "pursue the audio
+   path"; confirm before spending the build. This is the main remaining feature ask.
+2. **True swipeable carousels** (multi-slide posts) if wanted — the pipeline does single images,
+   reels, and stories today, not multi-image carousels (the Routine renders carousel-format ideas as
+   a single infographic).
+3. **Vertical (1080x1920) ad creative** for Stories/Reels ad placements (§8) — `render-story.mjs` is
+   a good base for it.
+4. **More Story graphics** as needed (§8a) — any of the 311 topics can become a Story.
+5. Content is stocked: 298-topic `ideaBank` / 311 distinct topics (§10a), ~90-day runway. Regenerate
+   more via the `govcon-content-bank` workflow pattern when it thins out (~2 months).
 
 ## 10. Asset inventory (repo `posts/`)
 
