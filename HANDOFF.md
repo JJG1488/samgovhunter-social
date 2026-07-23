@@ -77,9 +77,12 @@ npm i playwright-core pngjs h264-mp4-encoder
   - `kicker`, `title` (use `<span class="g">word</span>` for the green word), `titleSize`,
     `subtitle`, `cta` (default "Start free at samgov-hunter.com"), `pointSize`.
   - **Always view the rendered PNG before publishing — confirm nothing overflows the 1080 canvas.**
-- **Reel (720x1280, ~6s, SILENT):** `pipeline/reel.mjs` — scene array with a deterministic
-  `window.setFrame(i,N,D)`; frames screenshotted by Chromium, decoded with `pngjs`, encoded to
-  H.264 MP4 with `h264-mp4-encoder` (WASM, works in Node). No audio track (see §7).
+- **Reel (720x1280, ~16-22s, SILENT):** `pipeline/reel.mjs` — a `RAW` scene array where each scene
+  has `t` seconds on screen, CLAMPED to `MIN_SCENE` (2.8s) so a scene can never read too fast (this
+  is the 2026-07-22 pacing fix; the old reels were 6.4s total and flew by). `window.setFrame` drives
+  a gentle fade; frames are screenshotted by Chromium, decoded with `pngjs`, encoded to H.264 MP4
+  with `h264-mp4-encoder` (WASM). Run `node pipeline/reel.mjs preview` to write `preview_*.png`
+  frames and eyeball readability BEFORE the full render. Keep each scene to ~8 words. No audio (see §7).
 
 The canonical `pipeline/` files live in this repo; the interactive session also keeps working
 copies in its scratchpad (`.../scratchpad/ig/render-card.mjs`, `reel.mjs`). If they diverge, the
@@ -188,6 +191,22 @@ The account's very first request was a **Facebook ad asset** (first-time adverti
 | `rule-of-two.mp4` | reel (silent) | POSTED |
 | `free-guide.jpg` | infographic | ready, standing post (guide offer) |
 | `ad-find-contracts.jpg` | paid ad creative | ready, for Meta Ads (NOT a feed post) |
+
+## 10a. Content runway (built 2026-07-22)
+
+`content-plan.json` holds **311 distinct topics**: 9 finished launchBatch posts + 3 finished
+reelScripts + 1 evergreen standingPost + a **298-topic `ideaBank`**. The ideaBank was expanded from
+30 to 298 via two adversarial fact-check workflows (269 net-new GovCon topics, each independently
+verified against 2026 FAR/SBA/GSA rules, deduped, and scrubbed of AI-tells). Each ideaBank entry is
+a one-line seed in the form `"<Format>: <topic> and <key fact>"`; the Routine renders it into a full
+post at post time (and must re-confirm any specific date/threshold/FAR cite while composing).
+- **Runway at 5 posts/day:** ~62 days with zero repeats, or ~90+ days with light, spaced,
+  format-varied reuse (which is normal and good — new followers have not seen older posts).
+- When the ideaBank starts to feel thin (~2 months out), regenerate more with the same workflow
+  pattern (see `workflows/scripts/govcon-content-bank*.js`), pointing the exclusion list at the
+  then-current topics. GovCon has roughly 350-400 solid distinct angles before quality drops.
+- Format mix in the bank: infographic / myth / tips / spotlight / reel / carousel. The Routine
+  rotates pillars + formats so consecutive posts differ.
 
 ## 11. Kill switch
 
