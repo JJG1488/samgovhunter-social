@@ -132,8 +132,24 @@ for (let i = 0; i < N; i++) {
   if (i % 24 === 0) console.log('frame', i, '/', N)
 }
 enc.finalize()
-const out = enc.FS.readFile(enc.outputFilename)
-writeFileSync(SCRATCH + OUT_NAME, Buffer.from(out))
+const silentMp4 = Buffer.from(enc.FS.readFile(enc.outputFilename))
 enc.delete()
 await browser.close()
-console.log('REEL DONE', W + 'x' + H, DUR.toFixed(1) + 's', N + ' frames', (out.length/1024).toFixed(0) + 'KB')
+
+// Add a synthesized, royalty-free AAC music bed. Best-effort: if anything fails (or
+// REEL_AUDIO_DISABLED=1), keep the silent video rather than fail the whole reel. Requires
+// audio-bed.mjs + mux-audio.mjs next to this file and @ffmpeg/ffmpeg + @ffmpeg/core installed.
+let finalMp4 = silentMp4, audioNote = '(silent)'
+if (process.env.REEL_AUDIO_DISABLED !== '1') {
+  try {
+    const { synthBedWav } = await import('./audio-bed.mjs')
+    const { muxAudio } = await import('./mux-audio.mjs')
+    finalMp4 = await muxAudio(silentMp4, synthBedWav(DUR))
+    audioNote = '(with AAC music bed)'
+  } catch (e) {
+    console.warn('REEL AUDIO skipped, keeping silent video:', e.message)
+    finalMp4 = silentMp4; audioNote = '(silent, audio step failed)'
+  }
+}
+writeFileSync(SCRATCH + OUT_NAME, finalMp4)
+console.log('REEL DONE', W + 'x' + H, DUR.toFixed(1) + 's', N + ' frames', (finalMp4.length / 1024).toFixed(0) + 'KB', audioNote)

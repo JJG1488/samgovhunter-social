@@ -136,16 +136,29 @@ reel, and carousel must mention it. It is now guaranteed structurally, not left 
   If the operator cares, the fix is to delete + repost those specific ones from the now-clean plan;
   otherwise they age out of the grid naturally. All NEW posts from here are clean.
 
-## 7. Reel audio — PENDING (operator said "pursue the audio path")
+## 7. Reel audio — DONE (2026-07-23, reels now have a synthesized AAC music bed)
 
-Reels currently ship SILENT. Available ffmpeg builds here are VP8-only (no H.264/AAC/mp4 muxer);
-`ffmpeg-static` download is blocked; `@ffmpeg/core` is browser-worker-only and crashes in Node.
-The viable path is a **WebCodecs** encode inside Chromium: render frames + a licensable/royalty-free
-audio bed to a `MediaStream`/`MediaRecorder` or `AudioEncoder`+`VideoEncoder` muxed to MP4/WebM in
-the page context, then read the blob out. NOT built yet. Before building, pick a **royalty-free /
-no-copyright** audio bed (IG's in-app licensed music can't be added via the API; only pre-muxed
-audio in the uploaded file works, so it must be royalty-free to avoid a takedown). This is the next
-build after Story graphics if the operator still wants it.
+Reels used to ship SILENT because the environment has **no WebCodecs** (VideoEncoder/AudioEncoder are
+`undefined`, even with flags) and the only ffmpeg (`/opt/pw-browsers/ffmpeg-1011`) is
+`--disable-everything` VP8/WebM only (no AAC, no H.264, no MP4 muxer). Solved with **ffmpeg.wasm**,
+which DOES run in Node (the handoff's old "crashes in Node" note was the multithreaded build; the
+single-threaded `@ffmpeg/core@0.11.0` + `@ffmpeg/ffmpeg@0.11.6` works with a tiny `fetch` shim so its
+loader can read local core files — see `pipeline/mux-audio.mjs`).
+- `pipeline/audio-bed.mjs` — synthesizes a **royalty-free** bed from pure math (a warm ambient pad
+  chord loop + soft pulse + shimmer, mixed quiet). No samples, no copyright, no external file. Matches
+  the reel's exact duration.
+- `pipeline/mux-audio.mjs` — ffmpeg.wasm muxes the silent H.264 video (stream-copied, no re-encode) +
+  the bed encoded to **AAC-LC 160k** into an MP4 with `+faststart`. Verified: output has `avc1` +
+  `mp4a` tracks, moov before mdat.
+- `pipeline/reel.mjs` calls both automatically after the silent encode (best-effort: any failure keeps
+  the silent video; `REEL_AUDIO_DISABLED=1` renders silent). Needs `@ffmpeg/ffmpeg@0.11.6` +
+  `@ffmpeg/core@0.11.0` installed and the two helper files next to reel.mjs (AUTOMATION.md updated).
+- **Tune the bed** in `audio-bed.mjs`: `padGain` / `pulseGain` / `shimmerGain` (volumes), `chordDur`
+  (pace), `PROG` (the chord progression). The operator should ear-check it and say if it needs to be
+  quieter / warmer / different — it was designed tasteful-and-subtle but was not audibly reviewed here.
+- **Note vs IG trending audio:** API-published reels cannot use IG's in-app licensed music (app-only),
+  and IG's algorithm favors trending sounds. The baked-in bed is the right call for AUTO-posted reels;
+  if a specific reel is posted manually, IG trending audio would reach further. Both are valid.
 
 ## 8. Facebook / Instagram AD creative (the original ask)
 
