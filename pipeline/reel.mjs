@@ -23,12 +23,12 @@ const MARK = `<svg viewBox="0 0 100 100" width="52" height="52" xmlns="http://ww
 // the total run 16-24s. Do NOT drop below MIN_SCENE, that is what made reels feel rushed.
 const MIN_SCENE = 2.8
 const RAW = [
-  { t: 3.0, html: `<div class="big">Your "let's team up" email to a prime gets <span class="g">ignored</span>.</div>` },
-  { t: 3.0, html: `<div class="big">Primes pick subs during <span class="g">capture</span>, months before the RFP drops.</div>` },
-  { t: 2.9, html: `<div class="huge g">Timing</div><div class="mono">beats politeness</div>` },
-  { t: 4.0, html: `<div class="list"><div>Skip the "we do everything" pitch</div><div>Send a 1-page capability statement</div><div>Tied to ONE named opportunity</div></div>` },
-  { t: 3.3, html: `<div class="big">Show up knowing their <span class="g">next contract</span>, not just your services.</div>` },
-  { t: 3.4, html: `<div class="big">Find that opportunity first.</div><div class="chip">Free at samgov-hunter.com</div>` },
+  { t: 3.0, html: `<div class="big">On a cost-reimbursement job, one clause makes you <span class="g">raise your hand</span> before the money runs out.</div>` },
+  { t: 3.0, html: `<div class="big">It's FAR 52.232-20, the <span class="g">Limitation of Cost</span> clause.</div>` },
+  { t: 2.9, html: `<div class="huge g">75%</div><div class="mono">is the trigger point</div>` },
+  { t: 4.0, html: `<div class="list"><div>Expect to hit 75% of funded cost</div><div>Notify the CO in writing</div><div>Miss it, costs above the ceiling may go unpaid</div></div>` },
+  { t: 3.3, html: `<div class="big">Fixed-price work doesn't work this way. This clause is <span class="g">cost-reimbursement only</span>.</div>` },
+  { t: 3.3, html: `<div class="big">Know your contract type before you bid it.</div><div class="chip">Free at samgov-hunter.com</div>` },
 ]
 let acc = 0
 const scenes = RAW.map((r) => { const d = Math.max(MIN_SCENE, r.t); const o = { s: acc, e: acc + d, html: r.html }; acc += d; return o })
