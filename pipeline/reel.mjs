@@ -23,12 +23,12 @@ const MARK = `<svg viewBox="0 0 100 100" width="52" height="52" xmlns="http://ww
 // the total run 16-24s. Do NOT drop below MIN_SCENE, that is what made reels feel rushed.
 const MIN_SCENE = 2.8
 const RAW = [
-  { t: 3.0, html: `<div class="big">The line that wins your evaluator over is not about <span class="g">your company</span>.</div>` },
-  { t: 2.9, html: `<div class="big">Proposal writers call it the <span class="g">you-attitude.</span></div>` },
-  { t: 4.2, html: `<div class="list"><div>Weak: "Our firm has 15 years of experience"</div><div>Strong: "Your mission gets zero downtime, backed by 15 years"</div></div>` },
-  { t: 3.3, html: `<div class="big">Evaluators score against the <span class="g">customer's need</span>, not your resume.</div>` },
-  { t: 3.2, html: `<div class="big">Rewrite the first sentence of every section this way.</div>` },
-  { t: 3.0, html: `<div class="big">Start with them. Win with them.</div><div class="chip">Free at samgov-hunter.com</div>` },
+  { t: 3.2, html: `<div class="big">Think a <span class="g">joint venture</span> can only win two or three contracts?</div>` },
+  { t: 3.6, html: `<div class="list"><div>Myth: capped at 3 awards</div><div>Truth: SBA killed that limit in 2020</div></div>` },
+  { t: 3.6, html: `<div class="big">A JV can now win <span class="g">unlimited awards</span> for two years after its first one.</div>` },
+  { t: 3.4, html: `<div class="big">The clock starts at the <span class="g">first award</span>, not when you formed the JV.</div>` },
+  { t: 3.2, html: `<div class="big">After two years, stand up a <span class="g">new JV</span> for the next round.</div>` },
+  { t: 3.4, html: `<div class="big">Check your teaming plan against the current rule.</div><div class="chip">Free at samgov-hunter.com</div>` },
 ]
 let acc = 0
 const scenes = RAW.map((r) => { const d = Math.max(MIN_SCENE, r.t); const o = { s: acc, e: acc + d, html: r.html }; acc += d; return o })
