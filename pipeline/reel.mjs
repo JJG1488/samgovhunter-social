@@ -23,12 +23,12 @@ const MARK = `<svg viewBox="0 0 100 100" width="52" height="52" xmlns="http://ww
 // the total run 16-24s. Do NOT drop below MIN_SCENE, that is what made reels feel rushed.
 const MIN_SCENE = 2.8
 const RAW = [
-  { t: 3.2, html: `<div class="big">Think a <span class="g">joint venture</span> can only win two or three contracts?</div>` },
-  { t: 3.6, html: `<div class="list"><div>Myth: capped at 3 awards</div><div>Truth: SBA killed that limit in 2020</div></div>` },
-  { t: 3.6, html: `<div class="big">A JV can now win <span class="g">unlimited awards</span> for two years after its first one.</div>` },
-  { t: 3.4, html: `<div class="big">The clock starts at the <span class="g">first award</span>, not when you formed the JV.</div>` },
-  { t: 3.2, html: `<div class="big">After two years, stand up a <span class="g">new JV</span> for the next round.</div>` },
-  { t: 3.4, html: `<div class="big">Check your teaming plan against the current rule.</div><div class="chip">Free at samgov-hunter.com</div>` },
+  { t: 3.2, html: `<div class="big">Think the due date on a notice is <span class="g">set in stone</span>?</div>` },
+  { t: 3.6, html: `<div class="list"><div>Myth: the posted date is final</div><div>Truth: amendments move it, often</div></div>` },
+  { t: 3.6, html: `<div class="big">The <span class="g">latest amendment</span> carries the real offers-due date and time.</div>` },
+  { t: 3.4, html: `<div class="big">Miss one and you can submit <span class="g">too late</span> without ever knowing it.</div>` },
+  { t: 3.2, html: `<div class="big">Recheck the notice every few days, not just once at the start.</div>` },
+  { t: 3.4, html: `<div class="big">Get matched opportunities and their amendments in one place.</div><div class="chip">Free at samgov-hunter.com</div>` },
 ]
 let acc = 0
 const scenes = RAW.map((r) => { const d = Math.max(MIN_SCENE, r.t); const o = { s: acc, e: acc + d, html: r.html }; acc += d; return o })
