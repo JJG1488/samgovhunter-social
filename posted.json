@@ -321,7 +321,8 @@
     "offer-acceptance-period",
     "termination-for-convenience-payout",
     "key-personnel-commitment",
-    "apex-bid-matching-reel"
+    "apex-bid-matching-reel",
+    "mandatory-site-visit"
   ],
-  "note": "Day (2026-10-05): apex-bid-matching-reel (reel)."
+  "note": "Day (2026-10-05): apex-bid-matching-reel (reel), mandatory-site-visit (image)."
 }
