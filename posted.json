@@ -346,7 +346,8 @@
     "e-verify-clause-52-222-54",
     "cor-cant-change-contract",
     "unbalanced-pricing-red-flag",
-    "bilateral-vs-unilateral-mod-reel"
+    "bilateral-vs-unilateral-mod-reel",
+    "competitive-range-cut"
   ],
-  "note": "Day (2026-10-11): bilateral-vs-unilateral-mod-reel (reel)."
+  "note": "Day (2026-10-11): competitive-range-cut (image)."
 }
