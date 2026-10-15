@@ -362,7 +362,8 @@
     "sat-350k-small-business-lane",
     "past-performance-lookback-window",
     "single-point-of-contact-reel",
-    "partial-set-aside-lots"
+    "partial-set-aside-lots",
+    "hubzone-price-evaluation-preference"
   ],
-  "note": "Day (2026-10-15): partial-set-aside-lots (image, original)."
+  "note": "Day (2026-10-15): hubzone-price-evaluation-preference (image, original)."
 }
